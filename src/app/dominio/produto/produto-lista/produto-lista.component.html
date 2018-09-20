@@ -1,0 +1,29 @@
+<h1>Lista de Produtos</h1>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/produto/novo']">Adicionar Produto</button>
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Preco</th>
+            <th scope="col">Descricao</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produto of produtos">
+            <td>{{produto.id}}</td>
+            <td>{{produto.nome}}</td>
+            <td>{{produto.preco}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>
+                <a [routerLink]="['/produto/alterar',produto.id]" >Alterar</a> | 
+                <button (click)="excluir(produto.id)">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{{teste}}

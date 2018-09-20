@@ -1,0 +1,76 @@
+<div class="container">
+
+	<!-- TOPO -->
+	<div class="row topo">
+		<div class="col">
+			<img class="logo" src="assets/imagens/log.PNG" />
+		</div>
+	</div>
+
+	<!-- MENU HORIZONTAL -->
+	<div class="row menu-horizontal">
+		<div class="col-12">
+
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link"  [routerLink]="['produto']">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Basquete</a>
+					<a class="dropdown-item" href="#">Camisetas</a>
+					<a class="dropdown-item" href="#">Shorts</a>
+					<a class="dropdown-item" href="#">Tênis</a>				
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Boxe</a>
+					<a class="dropdown-item" href="#">Camisetas</a>
+					<a class="dropdown-item" href="#">Luvas</a>	
+					<a class="dropdown-item" href="#">Shorts</a>
+					<a class="dropdown-item" href="#">Tênis</a>		
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Carrinho</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+
+	<!-- MEIO -->
+	<div class="row meio">
+
+		<!-- MENU VERTICAL -->
+		<div class="col-3 menu-vertical">
+
+
+			<ul class="nav flex-column">
+				<li class="nav-item item-info">
+					Categoria
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Feminino</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Masculino</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- CONTEUDO -->
+		<div class="col-9">
+
+			<!-- start: page -->
+			<router-outlet></router-outlet>
+			<!-- end: page --> 
+
+		</div>
+	</div>
+
+	<!-- RODAPE -->
+	<div class="row">
+		<div class="col rodape">
+			<p> Aula Prog Web 2018/2 &#174; Direitos Reservados </p>
+		</div>
+	</div>
+
+</div>

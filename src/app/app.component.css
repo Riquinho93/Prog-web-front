@@ -1,10 +1,15 @@
 /* TOPO */
+.container{
+    margin: 10px 5px;
+    padding: 4px;
+}
 .topo {
 
-    margin: 30px 0px;
+    margin: 10px 5px;
+    padding: 30px;
 }
     .logo{
-        width: 180px;
+        width: 300px;
     }
 
 
@@ -13,7 +18,7 @@
     padding: 5px 0px;
     background-color: #3D3D3D;
     border-radius: 10px;
-    margin: 0;
+    margin: 5px 5px 8px 5px;
 }
 .menu-horizontal a {
     text-transform: uppercase;
@@ -27,7 +32,7 @@
 
 
 /* MENU VERTICAL */
-.menu-vertical{
+/*.menu-vertical{
     background-color: #f0f0f0;
     border-radius: 10px;
     padding: 10px;
@@ -39,7 +44,7 @@
 
 .menu-vertical .item-info{
     font-weight: bold;
-}
+}*/
 
 
 /*RODAPE*/

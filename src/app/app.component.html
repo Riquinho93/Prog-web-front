@@ -5,35 +5,34 @@
 		<div class="col">
 			<img class="logo" src="assets/imagens/log.PNG" />
 		</div>
+		<div class="col-3">
+			<carrinho-widget></carrinho-widget>
+		</div>
+		
 	</div>
 
 	<!-- MENU HORIZONTAL -->
 	<div class="row menu-horizontal">
-		<div class="col-12">
-
-			<ul class="nav">
-				<li class="nav-item">
-					<a class="nav-link"  [routerLink]="['produto']">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Basquete</a>
-					<a class="dropdown-item" href="#">Camisetas</a>
-					<a class="dropdown-item" href="#">Shorts</a>
-					<a class="dropdown-item" href="#">Tênis</a>				
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Boxe</a>
-					<a class="dropdown-item" href="#">Camisetas</a>
-					<a class="dropdown-item" href="#">Luvas</a>	
-					<a class="dropdown-item" href="#">Shorts</a>
-					<a class="dropdown-item" href="#">Tênis</a>		
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Carrinho</a>
-				</li>
-			</ul>
-
-		</div>
+			<div class="col-12">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link active" [routerLink]="['produto']">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Basquete</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Boxe</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contatos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Pesquisar</a>
+					</li>
+				</ul>		 
+		   </div>
+		
 	</div>
 
 	<!-- MEIO -->
@@ -48,13 +47,16 @@
 					Categoria
 				</li>
 				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['categoria']">Categorias</a>
+				</li>
+		<!--		<li class="nav-item">
 					<a class="nav-link" href="#">Feminino</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Masculino</a>
-				</li>
+				</li> -->
 			</ul>
-		</div>
+		</div> 
 
 		<!-- CONTEUDO -->
 		<div class="col-9">
@@ -65,8 +67,10 @@
 
 		</div>
 	</div>
+	
 
 	<!-- RODAPE -->
+	<br /><br /><br /><br /><br />
 	<div class="row">
 		<div class="col rodape">
 			<p> Aula Prog Web 2018/2 &#174; Direitos Reservados </p>

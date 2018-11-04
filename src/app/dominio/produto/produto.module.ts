@@ -8,12 +8,16 @@ import { ProdutoRouting } from './produto.routing';
 import { ProdutoService } from './produto.service';
 import { ProdutoListaComponent } from './produto-lista/produto-lista.component';
 import { ProdutoFormularioComponent } from './produto-formulario/produto-formulario.component';
+import { CategoriaService } from '../categoria/categoria.service';
+import { ItemListaComponent } from './item-lista/item-lista.component';
+import { CarrinhoService } from '../carrinho/carrinho.service';
 
 
 @NgModule({
     declarations: [
         ProdutoListaComponent,
-        ProdutoFormularioComponent
+        ProdutoFormularioComponent,
+        ItemListaComponent
     ],
     imports: [
         // Angular
@@ -28,7 +32,8 @@ import { ProdutoFormularioComponent } from './produto-formulario/produto-formula
     ],
     providers: [
         // Serviços
-        ProdutoService
+        ProdutoService,
+        CategoriaService
     ]
 })
 

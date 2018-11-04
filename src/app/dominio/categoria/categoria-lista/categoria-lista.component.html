@@ -1,0 +1,23 @@
+<h1>Lista de Categorias</h1>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/categoria/novo']">Adicionar Categoria</button>
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let categoria of categorias; let i = index">
+            <td>{{categoria.id}}</td>
+            <td>{{categoria.nome}}</td>
+            <td>
+                <a [routerLink]="['/categoria/alterar', categoria.id]" >Alterar</a> | 
+                <button (click)="excluir(categoria.id, i)">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

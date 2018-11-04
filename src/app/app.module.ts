@@ -4,14 +4,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-
+import {ProdutoService} from './dominio/produto/produto.service';
+import { CarrinhoService } from './dominio/carrinho/carrinho.service';
 import { AlertModule } from 'ngx-bootstrap';
 import { AppRouting } from './app.routing';
+import { CarrinhoWidget } from './dominio/carrinho/carrinho-widget/carrinho-widget.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+     CarrinhoWidget
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,10 @@ import { AppRouting } from './app.routing';
     // app
     AppRouting
   ],
-  providers: [],
+  providers: [
+    CarrinhoService,
+    ProdutoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class ProdutoListaComponent implements OnInit {
 
     produtos: Produto[];
-    teste: string = "valor da variavel";
 
     constructor(
       private produtoService: ProdutoService,
@@ -23,7 +22,6 @@ export class ProdutoListaComponent implements OnInit {
         
       this.produtoService.buscarTodos()
       .subscribe(resposta => {
-        console.log(resposta)
         this.produtos = resposta
       });
 

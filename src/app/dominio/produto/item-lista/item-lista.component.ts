@@ -34,6 +34,7 @@ export class ItemListaComponent implements OnInit {
   }
 
   adicionarProduto(produto: Produto){
+    localStorage.setItem('produto', produto.nome),
     this.carrinhoService.adicionarProduto(produto);
   }
 

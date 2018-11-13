@@ -3,10 +3,14 @@
 	<!-- TOPO -->
 	<div class="row topo">
 		<div class="col">
-			<img class="logo" src="assets/imagens/log.PNG" />
+			<a [routerLink]="['produto']">
+				<img class="logo"  src="assets/imagens/log.PNG" />
+			</a>
 		</div>
 		<div class="col-3">
-			<carrinho-widget></carrinho-widget>
+			<a [routerLink]="['cart']">
+				<carrinho-widget></carrinho-widget>
+			</a>
 		</div>
 		
 	</div>
@@ -16,7 +20,10 @@
 			<div class="col-12">
 				<ul class="nav">
 					<li class="nav-item">
-						<a class="nav-link active" [routerLink]="['produto']">Home</a>
+						<a class="nav-link" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" [routerLink]="['produto']">Produto</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Basquete</a>

@@ -9,13 +9,15 @@ import { CarrinhoService } from './dominio/carrinho/carrinho.service';
 import { AlertModule } from 'ngx-bootstrap';
 import { AppRouting } from './app.routing';
 import { CarrinhoWidget } from './dominio/carrinho/carrinho-widget/carrinho-widget.component';
+import { CartComponent } from './dominio/cart/cart.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-     CarrinhoWidget
+    CarrinhoWidget,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,61 +1,31 @@
 import { Component } from '@angular/core';
 import { ProdutoService } from '../produto/produto.service';
-//import { Subscription } from 'rxjs/Subscription';
-import { CarrinhoService } from '../carrinho.service';
-import { Carrinho } from '../carrinho';
+import { CarrinhoService } from '../carrinho/carrinho.service';
+import { Carrinho } from '../carrinho/carrinho';
+import {Produto} from '../produto/produto';
 
 
 @Component({
   selector: 'cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-
+  produto:Produto;
+  produtos: any[];
   public cart = [];
-  public totalPreco: number;
+  public precoTotal: number;
   public qtdProduto: number;
-  //public cartSubscription: Subscription;
+  private carrinhoService:CarrinhoService;
 
-  constructor(private produtoService:ProdutoService,  private carrinhoService: CarrinhoService) {}
+  constructor(private produtoService:ProdutoService,  carrinhoService: CarrinhoService) {}
 
-  removeProduto(produto) {
-    this.carrinhoService.removeFromCart(produto)
-  }
+  removeProduto(produto) { }
 
-  checkout() {
-    alert('Sorry! Checkout will be coming soon!')
-  }
+  
 
-  getTotalPreco() {
-    let totalCusto: Array<number> = []
-    let quantidade: Array<number> = []
-    let intPreco: number
-    let intQuantidade: number
-    this.cart.forEach((item, i) => {
-      intPreco = parseInt(item.preco)
-      intQuantidade = parseInt(item.quantidade)
-      totalCusto.push(intPreco)
-      quantidade.push(intQuantidade)
-    })
+  ngOnInit() {  }
 
-    this.totalPreco = totalCusto.reduce((acc, item) => {
-      return acc += item
-    }, 0)
-    this.qtdProduto = quantidade.reduce((acc, item) => {
-      return acc += item
-    }, 0)
-  }
-
-  ngOnInit() {
-    this.carrinhoService = this.cartStore.getState().subscribe(res => {
-      this.cart = res.produtos
-      this.getTotalPreco()
-    })
-  }
-
-  ngOnDestroy() {
-    this.carrinhoService.unsubscribe()
-  }
+  
   
 }

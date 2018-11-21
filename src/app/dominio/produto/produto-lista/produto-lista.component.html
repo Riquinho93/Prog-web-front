@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let produto of produtos">
+        <tr *ngFor="let produto of produtos; let i = index">
             <td>{{produto.id}}</td>
             <td>{{produto.nome}}</td>
             <td>{{produto.modalidade}}</td>
@@ -22,7 +22,7 @@
             <td>{{produto.descricao}}</td>
             <td>
                 <a [routerLink]="['/produto/alterar',produto.id]" >Alterar</a> | 
-                <button (click)="excluir(produto.id)">Excluir</button>
+                <button (click)="excluir(produto.id, i)">Excluir</button>
             </td>
         </tr>
     </tbody>

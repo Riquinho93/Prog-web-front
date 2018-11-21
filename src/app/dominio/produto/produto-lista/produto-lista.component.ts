@@ -27,9 +27,12 @@ export class ProdutoListaComponent implements OnInit {
 
     }
 
-    excluir(produtoId: number) {
+    excluir(produtoId: number, index: number) {
       this.produtoService.excluir(produtoId)
       .subscribe(resposta => {
+        
+        this.produtos.splice(index, 1);
+
         console.log("Produto excluído com sucesso");
         // retorna para a lista
         this.router.navigate(['/produto']);

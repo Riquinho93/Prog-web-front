@@ -1,4 +1,4 @@
-<div *ngIf="cart.length <= 0">
+<div *ngIf="produtosCarrinho.length <= 0">
     <h3 class="text-center">No items in the Cart!</h3>
 </div>
 <table class="table table-striped table-hover ">
@@ -12,18 +12,18 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let produto of cart; let i = index">
-        <td><h4>{{produto.qtdProduto}}</h4></td>
-        <td><h4>{{produto.name}}</h4></td>
-        <td><h4>{{produto.preco}}</h4></td>
-        <td><img src={{produto.src}} width="100" height="100" /></td>
-        <td><button (click)="removeProduto(produto)" class="btn btn-xs btn-danger">Remove Product</button></td>
+      <tr *ngFor="let produtoCarrinho of produtosCarrinho; let i = index">
+        <td><h4>{{produtoCarrinho.quantidade}}</h4></td>
+        <td><h4>{{produtoCarrinho.produto.nome}}</h4></td>
+        <td><h4>{{produtoCarrinho.produto.preco}}</h4></td>
+        <td><img src={{produtoCarrinho.src}} width="100" height="100" /></td>
+        <td><button (click)="removeProduto(produtoCarrinho)" class="btn btn-xs btn-danger">Remove Product</button></td>
       </tr>
 
       <tr class="warning">
         <td><h4></h4></td>
         <td><h4>Total Items: {{qtdProduto}}</h4></td>
-        <td><h4>Total: ${{totalPreco}}</h4></td>
+        <td><h4>Total: ${{precTotal}}</h4></td>
       </tr>
     </tbody>
 </table>

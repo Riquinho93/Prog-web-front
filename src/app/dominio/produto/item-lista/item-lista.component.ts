@@ -9,6 +9,7 @@ import { Categoria } from '../../categoria/categoria';
 import { CategoriaService } from '../../categoria/categoria.service';
 import { CarrinhoService } from '../../carrinho/carrinho.service';
 import { ProdutoCarrinho } from './produto-carrinho';
+import { Carrinho } from '../../carrinho/carrinho';
 
 @Component({
   selector: 'item-lista',
@@ -18,6 +19,7 @@ import { ProdutoCarrinho } from './produto-carrinho';
 export class ItemListaComponent implements OnInit {
 
   produtos: Produto[];
+  carrinho: ProdutoCarrinho[];
 
   constructor(
     private produtoService: ProdutoService,
@@ -35,65 +37,22 @@ export class ItemListaComponent implements OnInit {
   }
 
   adicionarProduto(produto: Produto){
-    let produtos = localStorage.getItem("produtos") ?
-    JSON.parse(localStorage.getItem("produtos")) :
-    [];
-
-    let item = {
-        produto: produto,
-        index: produtos.length ,
-        quantidade: 1,
-        valorUnitario: 0,
-        promocao: 0
-      }
-      var teste = true;
-
-      for (let i = 0; i < produtos.length; i++) {
-        if (produtos[i].produto.id == item.produto.id) {
-          if (produtos[i].quantidade > 1 ){
-            if(produtos[i].produto.precoPromocao >0){
-              produtos[i].produto.preco = (produtos[i].produto.precoPromocao * produtos[i].quantidade);
-              produtos[i].valorUnitario = produtos[i].produto.precoPromocao ;
-            }else{
-              produtos[i].produto.preco = produtos[i].produto.preco * produtos[i].quantidade;
-              produtos[i].valorUnitario = produtos[i].produto.preco ;
-            }
-          }else{
-            if(produtos[i].produto.precoPromocao >0){
-              produtos[i].produto.preco = produtos[i].produto.precoPromocao * ( produtos[i].quantidade+1);
-              produtos[i].valorUnitario = produtos[i].produto.precoPromocao ;
-            }else{
-              produtos[i].produto.preco = produtos[i].produto.preco * (produtos[i].quantidade);
-              produtos[i].valorUnitario = produtos[i].produto.preco ;
-            }
-          }
-          //produtos[i].promocao = item.produto.precoPromocao;
-          localStorage.setItem("produtos", JSON.stringify(produtos));
-          teste = false;
+    this.carrinho = JSON.parse(localStorage.getItem('carrinho'));//pega a string do local storage e transforma em obj
+    if (!this.carrinho) {
+        this.carrinho = [];//tenho de resetar o objeto pois se o json estiver vazio ele vira null, e eu não posso dar push em algo null
+        this.carrinho.push(new ProdutoCarrinho(produto, 1));//inicia o obj itemCarrinho com 1 na quantidade e manda para o carrinho
+        localStorage.setItem('carrinho', JSON.stringify(this.carrinho))//sobe o objeto para o local storage transformando ele em string no formato JSON
+    } else {
+      //find ele volta uma referencia para algo que vc está pesquisando
+        let itemEncontrado = this.carrinho.find((itemCarrinho) =>
+            itemCarrinho.produto.id == produto.id
+        );
+        if(itemEncontrado){// verifica se existe algum itemEncontrado
+            itemEncontrado.quantidade += 1;//se sim adiciona um
+        } else {
+            this.carrinho.push(new ProdutoCarrinho(produto, 1));//se nao sobe um novo item para o carrinho
         }
-      }
-
-      if (teste) {
-        produtos.push(item);
-      }
-
-
-localStorage.setItem("produtos", JSON.stringify(produtos));
-//this.appComponent.atualizaNumero();
-
-      // RECEITINHA
-      // adicionar +1 na quantidade do 'itemEncontrado'
-      // inserir objeto com quantidade atualizada novamente na lista
-      // inserir novamente no localstorage lista atualizada
-    //  console.log('item encontrado', itemEncontrado);
-
-      //produtosCarrinho.push(produto);
-      //localStorage.setItem('carrinho', JSON.stringify(produto));
-  //  }
-    
-
-
-    //localStorage.setItem('carrinho', JSON.stringify(produtoCarrinho));
+        localStorage.setItem('carrinho', JSON.stringify(this.carrinho));//independente do resultado tem de subir para o carrinho
+    }
   }
-
 }

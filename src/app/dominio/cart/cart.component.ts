@@ -5,7 +5,6 @@ import { Carrinho } from '../carrinho/carrinho';
 import {Produto} from '../produto/produto';
 import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
 
-
 @Component({
   selector: 'cart',
   templateUrl: './cart.component.html',
@@ -22,30 +21,35 @@ export class CartComponent {
 
   constructor(private produtoService:ProdutoService,  carrinhoService: CarrinhoService) {}
   
-  removeProduto(i) { 
-   // console.log('remove: ', produto.produto.nome);
-    let carrinho = localStorage.getItem("carrinho") ?
-    JSON.parse(localStorage.getItem("carrinho")) :
-    [];
+  removeProduto(index: number) { 
+    this.produtosCarrinho.splice(index, 1);
+    localStorage.setItem('carrinho', JSON.stringify(this.produtosCarrinho))
+  }
 
-    carrinho = carrinho.filter(p => p.index != 1);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    this.listarProdutosCarrinho();
-    this.precoTotal();
+  valorTotalCarrinho() {
+    let total = 0;
+    this.produtosCarrinho.forEach(itemCarrinho => {
+      console.log(itemCarrinho)
+      total += (itemCarrinho.quantidade * itemCarrinho.produto.preco);
+    })
+    this.precTotal = total
+    return total;
+
     // buscar lista produtos armazenada na localStorage
     // encontrar produto desejado dentro da lista
     // remover da lista
     // armazenar lista atualizada na localStorage
     //              ___
     //       ____ <(ô.ô)>
-    //      |       \_/
-    //      |  __  | |
+    //     /|       \_/
+    //    / |  __  | |
     //      |_|  |_|_|
   }
 
   ngOnInit() {
     this.produtosCarrinho = new Array();
     this.listarProdutosCarrinho();  
+    this.valorTotalCarrinho();
   }
   
   listarProdutosCarrinho (){
@@ -54,17 +58,6 @@ export class CartComponent {
       console.log('caiu na condicao, não pode')
       this.qtdProduto = this.produtosCarrinho.length;
     }
-  }
-  precoTotal(){
-    let carrinho = localStorage.getItem("carrinho") ?
-    JSON.parse(localStorage.getItem("carrinho")) :
-    [];
-    let valorTotal = 0;
-
-    for(let i = 0; i < carrinho.length; i++){
-      valorTotal = valorTotal + carrinho[i].produto.preco;
-    }
-    this.precTotal = valorTotal;
   }
   
 }

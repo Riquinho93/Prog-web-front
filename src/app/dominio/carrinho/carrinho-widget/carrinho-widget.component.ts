@@ -13,9 +13,7 @@ export class CarrinhoWidget implements OnInit {
 
   public qtd = 0;
   public carrinho$: Observable<Carrinho>;
-
-
-
+  
   constructor(
     private router: Router,
     private carrinhoService: CarrinhoService

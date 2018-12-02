@@ -1,0 +1,23 @@
+<h1>Lista de modalidades</h1>
+
+<button type="button" class="btn btn-primary" [routerLink]="['/modalidade/novo']">Adicionar Modalidade</button>
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let modalidade of modalidades; let i = index">
+            <td>{{modalidade.id}}</td>
+            <td>{{modalidade.nome}}</td>
+            <td>
+                <a [routerLink]="['/modalidade/alterar', modalidade.id]" >Alterar</a> | 
+                <button (click)="excluir(modalidade.id, i)">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

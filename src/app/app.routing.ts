@@ -7,6 +7,7 @@ const appRoutes: Routes = [
     { path: '', redirectTo: '/', pathMatch: 'full'},
     { path: 'produto', loadChildren: './dominio/produto/produto.module#ProdutoModule'},
     { path: 'categoria', loadChildren: './dominio/categoria/categoria.module#CategoriaModule'},
+    { path: 'modalidade', loadChildren: './dominio/modalidade/modalidade.module#ModalidadeModule'},
     { path: 'cart', component: CartComponent}
 ];
 

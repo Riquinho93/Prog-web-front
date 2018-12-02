@@ -16,7 +16,9 @@
 
     <div class="form-group">
         <label for="modalidade">Modalidade</label>
-        <input type="text" class="form-control" id="modalidade" placeholder="Modalidade" formControlName="modalidade" />
+        <select class="form-control" formControlName="modalidade" [compareWith]="compararFn" >
+            <option *ngFor="let modalidade of modalidades" [ngValue]="modalidade">{{modalidade.nome}}</option> 
+        </select>
     </div>
 
     <div class="form-group">

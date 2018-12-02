@@ -9,7 +9,10 @@ import { ProdutoService } from './produto.service';
 import { ProdutoListaComponent } from './produto-lista/produto-lista.component';
 import { ProdutoFormularioComponent } from './produto-formulario/produto-formulario.component';
 import { CategoriaService } from '../categoria/categoria.service';
+import { ModalidadeService } from '../modalidade/modalidade.service';
 import { ItemListaComponent } from './item-lista/item-lista.component';
+import { BasqueteComponent } from '../basquete/basquete.component';
+import { BoxeComponent } from '../boxe/boxe.component';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 
 
@@ -17,7 +20,9 @@ import { CarrinhoService } from '../carrinho/carrinho.service';
     declarations: [
         ProdutoListaComponent,
         ProdutoFormularioComponent,
-        ItemListaComponent
+        ItemListaComponent,
+        BasqueteComponent,
+        BoxeComponent
     ],
     imports: [
         // Angular
@@ -33,7 +38,8 @@ import { CarrinhoService } from '../carrinho/carrinho.service';
     providers: [
         // Serviços
         ProdutoService,
-        CategoriaService
+        CategoriaService,
+        ModalidadeService
     ]
 })
 

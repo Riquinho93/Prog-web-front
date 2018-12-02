@@ -7,6 +7,8 @@ import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 import { Categoria } from '../../categoria/categoria';
 import { CategoriaService } from '../../categoria/categoria.service';
+import { Modalidade} from '../../modalidade/modalidade';
+import { ModalidadeService} from '../../modalidade/modalidade.service';
 
 
 @Component({
@@ -20,13 +22,15 @@ export class ProdutoFormularioComponent implements OnInit {
   produtoForm: FormGroup;
   titulo: string;
   categorias: Categoria[];
+  modalidades: Modalidade[];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private builder: FormBuilder,
     private produtoService: ProdutoService,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private modalidadeService: ModalidadeService
   ) { }
 
   ngOnInit() {
@@ -55,6 +59,11 @@ export class ProdutoFormularioComponent implements OnInit {
        this.categoriaService.buscarTodos().subscribe( resposta => {
         this.categorias = resposta;
       })
+
+        // busca as modalidades
+        this.modalidadeService.buscarTodos().subscribe( resposta => {
+          this.modalidades = resposta;
+        })
 
     // Se existir `ID` realiza busca para trazer os dados
     if (this.produto.id != null) {

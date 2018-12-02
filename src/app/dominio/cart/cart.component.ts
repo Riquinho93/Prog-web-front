@@ -16,6 +16,8 @@ export class CartComponent {
   public cart = [];
   public precTotal: number = 0;
   public qtdProduto: number;
+  public diminuir = this.qtdProduto - 1;
+  public aumentar = this.qtdProduto + 1;
 
   produtosCarrinho : ProdutoCarrinho[];
 
@@ -39,11 +41,11 @@ export class CartComponent {
     // encontrar produto desejado dentro da lista
     // remover da lista
     // armazenar lista atualizada na localStorage
-    //              ___
-    //       ____ <(ô.ô)>
-    //     /|       \_/
-    //    / |  __  | |
-    //      |_|  |_|_|
+  //              ___
+  //       ____ <(ô.ô)>         
+  //     /|       \_/                          
+  //    / |  __  | |                  
+  //      |_|  |_|_|
   }
 
   ngOnInit() {

@@ -26,16 +26,10 @@
 						<a class="nav-link active" [routerLink]="['produto']">Produto</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Basquete</a>
+						<a class="nav-link" [routerLink]="['produto/lista']">Basquete</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Boxe</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contatos</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Pesquisar</a>
+						<a class="nav-link" [routerLink]="['produto/lista']">Boxe</a>
 					</li>
 				</ul>		 
 		   </div>
@@ -50,18 +44,12 @@
 
 
 			<ul class="nav flex-column">
-				<li class="nav-item item-info">
-					Categoria
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" [routerLink]="['categoria']">Categorias</a>
 				</li>
-		<!--		<li class="nav-item">
-					<a class="nav-link" href="#">Feminino</a>
-				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Masculino</a>
-				</li> -->
+					<a class="nav-link" [routerLink]="['modalidade']">Modalidades</a>
+				</li>
 			</ul>
 		</div> 
 

@@ -3,20 +3,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
-import { Produto } from '../produto';
-import { ProdutoService } from '../produto.service';
-import { Categoria } from '../../categoria/categoria';
-import { CategoriaService } from '../../categoria/categoria.service';
-import { CarrinhoService } from '../../carrinho/carrinho.service';
-import { ProdutoCarrinho } from './produto-carrinho';
-import { Carrinho } from '../../carrinho/carrinho';
+import { Produto } from '../produto/produto';
+import { ProdutoService } from '../produto/produto.service';
+import { Categoria } from '../categoria/categoria';
+import { CategoriaService } from '../categoria/categoria.service';
+import { CarrinhoService } from '../carrinho/carrinho.service';
+import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
+import { Carrinho } from '../carrinho/carrinho';
 
 @Component({
-  selector: 'item-lista',
-  templateUrl: './item-lista.component.html',
-  styleUrls: ['./item-lista.component.css']
+  selector: 'boxe-lista',
+  templateUrl: './boxe.component.html',
+  styleUrls: ['./boxe.component.css']
 })
-export class ItemListaComponent implements OnInit {
+export class BoxeComponent implements OnInit {
 
   produtos: Produto[];
   carrinho: ProdutoCarrinho[];

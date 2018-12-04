@@ -16,7 +16,7 @@
 
     <div class="form-group">
         <label for="modalidade">Modalidade</label>
-        <select class="form-control" formControlName="modalidade" [compareWith]="compararFn" >
+        <select class="form-control" formControlName="modalidade" [compareWith]="compararFn">
             <option *ngFor="let modalidade of modalidades" [ngValue]="modalidade">{{modalidade.nome}}</option> 
         </select>
     </div>

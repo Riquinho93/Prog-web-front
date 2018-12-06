@@ -10,11 +10,10 @@ import { BoxeComponent } from '../boxe/boxe.component';
 const produtoRoutes: Routes = [
     { path: '', component: ProdutoListaComponent},
    { path: 'lista', component: ItemListaComponent},
-   { path: 'lista', component: BasqueteComponent},
-   { path: 'lista', component: BoxeComponent},
     { path: 'visualizar/:id', component: ProdutoFormularioComponent},
     { path: 'novo', component: ProdutoFormularioComponent},
     { path: 'alterar/:id', component: ProdutoFormularioComponent},
+    { path: 'modalidade/:modalidadeId', component: ItemListaComponent},
 ];
 
 

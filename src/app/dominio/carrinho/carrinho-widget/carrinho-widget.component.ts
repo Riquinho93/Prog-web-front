@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription, Observable, of } from 'rxjs';
 import { CarrinhoService } from '../carrinho.service';
 import { Carrinho } from '../carrinho';
+import { ProdutoCarrinho } from '../../produto/item-lista/produto-carrinho';
 
 @Component({
   selector: 'carrinho-widget',
@@ -13,7 +14,8 @@ export class CarrinhoWidget implements OnInit {
 
   public qtd = 0;
   public carrinho$: Observable<Carrinho>;
-  
+  produtosCarrinho : ProdutoCarrinho[];
+
   constructor(
     private router: Router,
     private carrinhoService: CarrinhoService
@@ -27,5 +29,5 @@ export class CarrinhoWidget implements OnInit {
   }
 
   ngOnInit() {}
-
+  
 }

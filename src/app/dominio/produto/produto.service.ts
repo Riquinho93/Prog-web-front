@@ -27,6 +27,14 @@ export class ProdutoService {
             );
     }
 
+    buscarPelaModalidade(modalidadeId: number):  Observable<Produto[]> {
+        return this.http
+            .get<Produto[]>(`${this.URL}/produto/modalidade/${modalidadeId}`)
+            .pipe(
+                map(response => response)
+            );
+    }
+
     salvar(produto: Produto): Observable<Produto> {
 
         const httpOptions = {

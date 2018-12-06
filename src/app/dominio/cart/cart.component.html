@@ -7,13 +7,13 @@
         <th>Quantidade</th>
         <th>Nome</th>
         <th>Preço</th>
-        <th>Image</th>
+        <th>Imagem</th>
         </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let produtoCarrinho of produtosCarrinho; let i = index">
-        <td><h4>{{produtoCarrinho.quantidade}}</h4></td>
+        <td><h4><a>-</a> {{produtoCarrinho.quantidade}} <a>+</a></h4></td>
         <td><h4>{{produtoCarrinho.produto.nome}}</h4></td>
         <td><h4>{{produtoCarrinho.produto.preco}}</h4></td>
         <td><img src={{produtoCarrinho.src}} width="100" height="100" /></td>
@@ -22,7 +22,7 @@
 
       <tr class="warning">
         <td><h4></h4></td>
-        <td><h4>Total Items: {{qtdProduto}}</h4></td>
+        <td><h4>Total de itens: {{qtdProduto}}</h4></td>
         <td><h4>Total: ${{precTotal}}</h4></td>
       </tr>
     </tbody>

@@ -10,6 +10,7 @@ import { CategoriaService } from '../categoria/categoria.service';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
 import { Carrinho } from '../carrinho/carrinho';
+import { Modalidade } from '../Modalidade/modalidade';
 
 @Component({
   selector: 'boxe-lista',
@@ -61,4 +62,14 @@ export class BoxeComponent implements OnInit {
         localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
     }
   }
+
+  boxe(){
+    var prod: Produto;
+    console.log("deu certo!!!!")
+    if(Object.is(prod.modalidade, "Boxe")){
+    
+        return true;
+    }
+  }
+
 }

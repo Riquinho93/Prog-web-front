@@ -13,11 +13,10 @@ import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
 export class CartComponent {
   produto:Produto;
   produtos: any[];
+  qtdCart: number = 0;
   public cart = [];
   public precTotal: number = 0;
-  public qtdProduto: number;
-  public diminuir = this.qtdProduto - 1;
-  public aumentar = this.qtdProduto + 1;
+  public qtdProduto: number=0;
 
   produtosCarrinho : ProdutoCarrinho[];
 
@@ -26,6 +25,18 @@ export class CartComponent {
   removeProduto(index: number) { 
     this.produtosCarrinho.splice(index, 1);
     localStorage.setItem('carrinho', JSON.stringify(this.produtosCarrinho))
+    this.atualizarProduto();
+  }
+
+  atualizarProduto(){
+    this.valorTotalCarrinho();
+    this.quantidades();
+  }
+
+  quantidades(){
+    let car: ProdutoCarrinho;
+    this.qtdCart = car.quantidade;
+    return this.qtdCart;
   }
 
   valorTotalCarrinho() {
@@ -37,15 +48,6 @@ export class CartComponent {
     this.precTotal = total
     return total;
 
-    // buscar lista produtos armazenada na localStorage
-    // encontrar produto desejado dentro da lista
-    // remover da lista
-    // armazenar lista atualizada na localStorage
-  //              ___
-  //       ____ <(ô.ô)>         
-  //     /|       \_/                          
-  //    / |  __  | |                  
-  //      |_|  |_|_|
   }
 
   ngOnInit() {
@@ -61,5 +63,5 @@ export class CartComponent {
       this.qtdProduto = this.produtosCarrinho.length;
     }
   }
-  
+
 }

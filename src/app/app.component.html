@@ -7,16 +7,20 @@
 				<img class="logo"  src="assets/imagens/log.PNG" />
 			</a>
 		</div>
-		<div class="col-3">
-			<a [routerLink]="['cart']">
-				<carrinho-widget></carrinho-widget>
-			</a>
+		
+		<div class="col-1">
+			<a class="btn btn-primary">Login</a>
 		</div>
 		
 	</div>
+	<div class="col-1" style="float: right;">
+		<a [routerLink]="['cart']">
+			<carrinho-widget></carrinho-widget>
+		</a>
+	</div>
 
 	<!-- MENU HORIZONTAL -->
-	<div class="row menu-horizontal">
+	<div class="row menu-horizontal col-12">
 			<div class="col-12">
 				<ul class="nav">
 					<li class="nav-item">
@@ -25,12 +29,17 @@
 					<li class="nav-item">
 						<a class="nav-link active" [routerLink]="['produto']">Produto</a>
 					</li>
-					<li class="nav-item">
+
+					<div *ngFor="let modalidade of modalidades">
+						<a class="nav-link" (click)="listarPorModalidade(modalidade)">{{modalidade.nome}}</a>
+					</div>
+
+					<!-- <li class="nav-item">
 						<a class="nav-link" [routerLink]="['produto/lista']">Basquete</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" [routerLink]="['produto/lista']">Boxe</a>
-					</li>
+					</li> -->
 				</ul>		 
 		   </div>
 		

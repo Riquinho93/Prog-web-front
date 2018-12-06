@@ -24,15 +24,28 @@ export class ItemListaComponent implements OnInit {
   constructor(
     private produtoService: ProdutoService,
     private carrinhoService : CarrinhoService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ){}
 
   ngOnInit() {
-      
-    this.produtoService.buscarTodos()
-    .subscribe(resposta => {
-      this.produtos = resposta
-    });
+
+    let modalidadeId = this.route.snapshot.params['modalidadeId'];
+
+    if(modalidadeId){
+      console.log(modalidadeId)
+      this.produtos = []
+
+      this.produtoService.buscarPelaModalidade(modalidadeId)
+      .subscribe(resposta => {
+        this.produtos = resposta
+      })
+    } else {
+      this.produtoService.buscarTodos()
+      .subscribe(resposta => {
+        this.produtos = resposta
+      });
+    } 
 
   }
 
@@ -61,4 +74,4 @@ export class ItemListaComponent implements OnInit {
         localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
     }
   }
-}
+} 

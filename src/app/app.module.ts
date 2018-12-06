@@ -10,8 +10,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { AppRouting } from './app.routing';
 import { CarrinhoWidget } from './dominio/carrinho/carrinho-widget/carrinho-widget.component';
 import { CartComponent } from './dominio/cart/cart.component';
-
-
+import { ModalidadeService } from './dominio/modalidade/modalidade.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,8 @@ import { CartComponent } from './dominio/cart/cart.component';
   ],
   providers: [
     CarrinhoService,
-    ProdutoService
+    ProdutoService,
+    ModalidadeService
   ],
   bootstrap: [AppComponent]
 })

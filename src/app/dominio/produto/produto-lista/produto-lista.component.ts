@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Produto } from '../produto';
 import { ProdutoService } from '../../produto/produto.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'produto-lista',
@@ -15,11 +15,10 @@ export class ProdutoListaComponent implements OnInit {
 
     constructor(
       private produtoService: ProdutoService,
-      private router: Router
+      private router: Router,
     ){}
 
-    ngOnInit() {
-        
+    ngOnInit() {        
       this.produtoService.buscarTodos()
       .subscribe(resposta => {
         this.produtos = resposta

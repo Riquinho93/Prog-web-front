@@ -11,8 +11,6 @@ import { ProdutoFormularioComponent } from './produto-formulario/produto-formula
 import { CategoriaService } from '../categoria/categoria.service';
 import { ModalidadeService } from '../modalidade/modalidade.service';
 import { ItemListaComponent } from './item-lista/item-lista.component';
-import { BasqueteComponent } from '../basquete/basquete.component';
-import { BoxeComponent } from '../boxe/boxe.component';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 
 
@@ -20,9 +18,7 @@ import { CarrinhoService } from '../carrinho/carrinho.service';
     declarations: [
         ProdutoListaComponent,
         ProdutoFormularioComponent,
-        ItemListaComponent,
-        BasqueteComponent,
-        BoxeComponent
+        ItemListaComponent
     ],
     imports: [
         // Angular

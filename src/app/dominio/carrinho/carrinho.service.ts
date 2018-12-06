@@ -17,8 +17,6 @@ export class CarrinhoService {
     public cart = [];
     public precTotal: number = 0;
     public qtdProduto: number;
-    public diminuir = this.qtdProduto - 1;
-    public aumentar = this.qtdProduto + 1;
 
     produtosCarrinho : ProdutoCarrinho[];
 

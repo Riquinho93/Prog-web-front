@@ -31,7 +31,7 @@ export class ModalidadeListaComponent implements OnInit {
     excluir(modalidadeId: number, index: number) {
       this.modalidadeService.excluir(modalidadeId)
       .subscribe(resposta => {
-
+        //refresh na tela
         this.modalidades.splice(index, 1);
 
         console.log("modalidade excluído com sucesso");

@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
 
   
   listarPorModalidade(modalidade: Modalidade) {
+    //Fazendo o reflesh na tela
     window.location.reload();
     this.router.navigate([`/produto/modalidade/${modalidade.id}`]);
   }

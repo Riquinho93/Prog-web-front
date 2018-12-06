@@ -3,15 +3,15 @@
 	<!-- TOPO -->
 	<div class="row topo">
 		<div class="col">
-			<a [routerLink]="['produto']">
-				<img class="logo"  src="assets/imagens/log.PNG" />
+			<a [routerLink]="['produto/lista']">
+				<img class="logo" src="assets/imagens/world.png" />
 			</a>
 		</div>
-		
+
 		<div class="col-1">
 			<a class="btn btn-primary">Login</a>
 		</div>
-		
+
 	</div>
 	<div class="col-1" style="float: right;">
 		<a [routerLink]="['cart']">
@@ -21,28 +21,17 @@
 
 	<!-- MENU HORIZONTAL -->
 	<div class="row menu-horizontal col-12">
-			<div class="col-12">
-				<ul class="nav">
-					<li class="nav-item">
-						<a class="nav-link" [routerLink]="['produto/lista']">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" [routerLink]="['produto']">Produto</a>
-					</li>
+		<div class="col-12">
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['produto/lista']">Home</a>
+				</li>
+				<div *ngFor="let modalidade of modalidades">
+					<a class="nav-link" (click)="listarPorModalidade(modalidade)">{{modalidade.nome}}</a>
+				</div>
+			</ul>
+		</div>
 
-					<div *ngFor="let modalidade of modalidades">
-						<a class="nav-link" (click)="listarPorModalidade(modalidade)">{{modalidade.nome}}</a>
-					</div>
-
-					<!-- <li class="nav-item">
-						<a class="nav-link" [routerLink]="['produto/lista']">Basquete</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" [routerLink]="['produto/lista']">Boxe</a>
-					</li> -->
-				</ul>		 
-		   </div>
-		
 	</div>
 
 	<!-- MEIO -->
@@ -54,27 +43,34 @@
 
 			<ul class="nav flex-column">
 				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['produto']">Produto</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" [routerLink]="['categoria']">Categorias</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" [routerLink]="['modalidade']">Modalidades</a>
 				</li>
 			</ul>
-		</div> 
+		</div>
 
 		<!-- CONTEUDO -->
 		<div class="col-9">
 
 			<!-- start: page -->
 			<router-outlet></router-outlet>
-			<!-- end: page --> 
+			<!-- end: page -->
 
 		</div>
 	</div>
-	
+
 
 	<!-- RODAPE -->
-	<br /><br /><br /><br /><br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 	<div class="row">
 		<div class="col rodape">
 			<p> Aula Prog Web 2018/2 &#174; Direitos Reservados </p>

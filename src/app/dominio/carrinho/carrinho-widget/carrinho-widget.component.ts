@@ -12,7 +12,7 @@ import { ProdutoCarrinho } from '../../produto/item-lista/produto-carrinho';
 })
 export class CarrinhoWidget implements OnInit {
 
-  public qtd = 0;
+   qtd:number = 0;
   public carrinho$: Observable<Carrinho>;
   produtosCarrinho : ProdutoCarrinho[];
 
@@ -25,9 +25,10 @@ export class CarrinhoWidget implements OnInit {
       this.qtd = carrinho.qtdProduto;
     } );
 
-
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    let prod = JSON.parse(localStorage.getItem("carrinho"));
+   }
   
 }

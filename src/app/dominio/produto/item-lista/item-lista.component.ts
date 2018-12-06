@@ -29,9 +29,9 @@ export class ItemListaComponent implements OnInit {
   ){}
 
   ngOnInit() {
-
+    //Buscando o id de modalidade
     let modalidadeId = this.route.snapshot.params['modalidadeId'];
-
+    
     if(modalidadeId){
       console.log(modalidadeId)
       this.produtos = []

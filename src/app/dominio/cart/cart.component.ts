@@ -13,7 +13,6 @@ import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
 export class CartComponent {
   produto:Produto;
   produtos: any[];
-  qtdCart: number = 0;
   public cart = [];
   public precTotal: number = 0;
   public qtdProduto: number=0;
@@ -26,18 +25,19 @@ export class CartComponent {
     this.produtosCarrinho.splice(index, 1);
     localStorage.setItem('carrinho', JSON.stringify(this.produtosCarrinho))
     this.atualizarProduto();
+    this.listarProdutosCarrinho();
   }
 
   atualizarProduto(){
     this.valorTotalCarrinho();
-    this.quantidades();
+//    this.quantidades();
   }
 
-  quantidades(){
-    let car: ProdutoCarrinho;
-    this.qtdCart = car.quantidade;
-    return this.qtdCart;
-  }
+  // quantidades(){
+  //   let car: ProdutoCarrinho;
+  //   this.qtdCart = car.quantidade;
+  //   return this.qtdCart;
+  // }
 
   valorTotalCarrinho() {
     let total = 0;
@@ -57,9 +57,9 @@ export class CartComponent {
   }
   
   listarProdutosCarrinho (){
+    //pegando os produtos
     this.produtosCarrinho = JSON.parse(localStorage.getItem('carrinho'));
     if(this.produtosCarrinho){
-      console.log('caiu na condicao, não pode')
       this.qtdProduto = this.produtosCarrinho.length;
     }
   }

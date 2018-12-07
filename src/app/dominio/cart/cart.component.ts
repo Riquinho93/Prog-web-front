@@ -14,6 +14,7 @@ export class CartComponent {
   produto:Produto;
   produtos: any[];
   public cart = [];
+  qtd:number = 0;
   public precTotal: number = 0;
   public qtdProduto: number=0;
 
@@ -30,14 +31,19 @@ export class CartComponent {
 
   atualizarProduto(){
     this.valorTotalCarrinho();
+    this.listarProdutosCarrinho();
 //    this.quantidades();
   }
 
-  // quantidades(){
-  //   let car: ProdutoCarrinho;
-  //   this.qtdCart = car.quantidade;
-  //   return this.qtdCart;
-  // }
+  diminuirQuantidades(){
+    let prod: ProdutoCarrinho;
+    prod.quantidade = prod.quantidade - 1;
+   }
+   aumentarQuantidades(){
+
+    let q = JSON.parse(localStorage.getItem('carrinho'));
+      this.qtd = q.quantidade + 1;
+     }
 
   valorTotalCarrinho() {
     let total = 0;

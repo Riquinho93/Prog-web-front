@@ -12,23 +12,34 @@ import { ProdutoCarrinho } from '../../produto/item-lista/produto-carrinho';
 })
 export class CarrinhoWidget implements OnInit {
 
-   qtd:number = 0;
+  qtd: number = 0;
   public carrinho$: Observable<Carrinho>;
-  produtosCarrinho : ProdutoCarrinho[];
+  produtosCarrinho: ProdutoCarrinho[];
 
   constructor(
     private router: Router,
     private carrinhoService: CarrinhoService
-  ) {
-
-    this.carrinhoService.carrinhoObservable.subscribe( (carrinho: Carrinho) => {
-      this.qtd = carrinho.qtdProduto;
-    } );
-
-  }
+  ) { }
 
   ngOnInit() {
-    let prod = JSON.parse(localStorage.getItem("carrinho"));
-   }
-  
+    //  this.quantidadeItem();
+    let pro = JSON.parse(localStorage.getItem("carrinho")).length;
+    this.qtd = pro;
+  }
+
+  quantidadeItem() {
+    let qtdade = localStorage.getItem('carrinho') ?
+      JSON.parse(localStorage.getItem("carrinho")) :
+      [];
+
+    let prod = 0;
+    for (let i = 0; i < qtdade.length; i++) {
+      prod += this.produtosCarrinho[i].quantidade;
+    }
+    console.log(this.qtd);
+    this.qtd = prod;
+  }
+
+
+
 }

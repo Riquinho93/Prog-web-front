@@ -13,17 +13,17 @@
 
     <tbody>
       <tr *ngFor="let produtoCarrinho of produtosCarrinho; let i = index">
-        <td><h4><a>-</a> {{produtoCarrinho.quantidade}} <a>+</a></h4></td>
+        <td><h4><a (click)="diminuirQuantidades()">-</a> {{produtoCarrinho.quantidade}} <a (click)="aumentarQuantidades()">+</a></h4></td>
         <td><h4>{{produtoCarrinho.produto.nome}}</h4></td>
         <td><h4>{{produtoCarrinho.produto.preco}}</h4></td>
-        <td><img src="assets/imagens/basketball.gif" width="100" height="100" /></td>
+        <td><img src="assets/imagens/red.gif" width="100" height="100" /></td>
         <td><button (click)="removeProduto(produtoCarrinho, i)" class="btn btn-xs btn-danger">Remover</button></td>
       </tr>
 
       <tr class="warning">
         <td><h4></h4></td>
         <td><h4>Total de itens: {{qtdProduto}}</h4></td>
-        <td><h4>Total: ${{precTotal}}</h4></td>
+        <td><h4>Total: R$ {{precTotal}}</h4></td>
       </tr>
     </tbody>
 </table>

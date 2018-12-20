@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProdutoService } from '../produto/produto.service';
 import { CarrinhoService } from '../carrinho/carrinho.service';
 import { Carrinho } from '../carrinho/carrinho';
-import {Produto} from '../produto/produto';
+import { Produto } from '../produto/produto';
 import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
 
 @Component({
@@ -11,39 +11,46 @@ import { ProdutoCarrinho } from '../produto/item-lista/produto-carrinho';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  produto:Produto;
+
+  carrinhos: ProdutoCarrinho;
+  carrinho: ProdutoCarrinho[];
+  produto: Produto;
   produtos: any[];
   public cart = [];
-  qtd:number = 0;
+  qtd: number = 0;
   public precTotal: number = 0;
-  public qtdProduto: number=0;
+  public qtdProduto: number = 0;
 
-  produtosCarrinho : ProdutoCarrinho[];
+  produtosCarrinho: ProdutoCarrinho[];
 
-  constructor(private produtoService:ProdutoService,  carrinhoService: CarrinhoService) {}
-  
-  removeProduto(index: number) { 
+  constructor(private produtoService: ProdutoService, carrinhoService: CarrinhoService) { }
+
+  removeProduto(index: number) {
     this.produtosCarrinho.splice(index, 1);
     localStorage.setItem('carrinho', JSON.stringify(this.produtosCarrinho))
     this.atualizarProduto();
     this.listarProdutosCarrinho();
   }
 
-  atualizarProduto(){
+  atualizarProduto() {
     this.valorTotalCarrinho();
     this.listarProdutosCarrinho();
-//    this.quantidades();
+    //    this.quantidades();
   }
 
-  diminuirQuantidades(){
-    let prod: ProdutoCarrinho;
-    prod.quantidade = prod.quantidade - 1;
-   }
-   aumentarQuantidades(){
-
-    let q = JSON.parse(localStorage.getItem('carrinho'));
-      this.qtd = q.quantidade + 1;
-     }
+  diminuirQuantidades(carrinhos: ProdutoCarrinho) {
+    carrinhos.quantidade -= 1;
+    localStorage.setItem('carrinho', JSON.stringify(this.produtosCarrinho))
+    this.atualizarProduto();
+    this.listarProdutosCarrinho();
+  }
+  aumentarQuantidades(carrinhos: ProdutoCarrinho) {
+   
+    carrinhos.quantidade += 1;
+    localStorage.setItem('carrinho', JSON.stringify(this.produtosCarrinho))
+    this.atualizarProduto();
+    this.listarProdutosCarrinho();
+  }
 
   valorTotalCarrinho() {
     let total = 0;
@@ -58,14 +65,14 @@ export class CartComponent {
 
   ngOnInit() {
     this.produtosCarrinho = new Array();
-    this.listarProdutosCarrinho();  
+    this.listarProdutosCarrinho();
     this.valorTotalCarrinho();
   }
-  
-  listarProdutosCarrinho (){
+
+  listarProdutosCarrinho() {
     //pegando os produtos
     this.produtosCarrinho = JSON.parse(localStorage.getItem('carrinho'));
-    if(this.produtosCarrinho){
+    if (this.produtosCarrinho) {
       this.qtdProduto = this.produtosCarrinho.length;
     }
   }

@@ -10,6 +10,7 @@ const appRoutes: Routes = [
     { path: 'categoria', loadChildren: './dominio/categoria/categoria.module#CategoriaModule'},
     { path: 'modalidade', loadChildren: './dominio/modalidade/modalidade.module#ModalidadeModule'},
     { path: 'cart', component: CartComponent},
+    { path: 'cart/login', loadChildren: './dominio/login/login.module#LoginModule'},
     { path: 'login', loadChildren: './dominio/login/login.module#LoginModule'}
 ];
 

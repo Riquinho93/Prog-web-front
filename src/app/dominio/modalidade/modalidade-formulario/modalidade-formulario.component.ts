@@ -13,6 +13,7 @@ import { ModalidadeService } from '../modalidade.service';
 })
 export class ModalidadeFormularioComponent implements OnInit {
 
+  modalidades: Modalidade[];
   modalidade: Modalidade;
   modalidadeForm: FormGroup;
   titulo: string;
@@ -70,6 +71,7 @@ export class ModalidadeFormularioComponent implements OnInit {
       (error) => {
         console.log("Erro no back-end");
       });
+
     }
   }
   

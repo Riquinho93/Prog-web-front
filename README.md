@@ -1,6 +1,4 @@
-# ProgWebFront
-
-Desenvolvimento de um site e-commerce para a disciplina de Programação web;
+# Desenvolvimento de um site e-commerce para a disciplina de Programação web;
 
 Feito na linguaguem TypeScript na plataforma Angular na versão 6.
 

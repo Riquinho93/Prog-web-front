@@ -1,4 +1,4 @@
-## Development of an e-commerce
+## Development of an e-commerce - Front end
 
 Feito na linguaguem TypeScript na plataforma Angular na versão 6.
 

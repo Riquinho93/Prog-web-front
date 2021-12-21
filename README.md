@@ -1,4 +1,4 @@
-## Desenvolvimento de um site e-commerce para a disciplina de Programação web
+## Development of an e-commerce
 
 Feito na linguaguem TypeScript na plataforma Angular na versão 6.
 
